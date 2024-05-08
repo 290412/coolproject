@@ -2,13 +2,16 @@
     "name": "CoolProject",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "CoolProject": "github:290412/coolproject#b8066e0024eaa82a632ce44dce735beaa22b6e2c"
     },
     "files": [
         "main.blocks",
         "main.ts",
         "README.md",
-        "assets.json"
+        "assets.json",
+        "tilemap.g.jres",
+        "tilemap.g.ts"
     ],
     "testFiles": [
         "test.ts"
