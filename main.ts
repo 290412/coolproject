@@ -16,4 +16,10 @@ let mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
+tiles.placeOnRandomTile(mySprite, assets.tile`myTile3`)
 tiles.setCurrentTilemap(tilemap`level4`)
+for (let value of tiles.getTilesByType(assets.tile`myTile3`)) {
+    tiles.setTileAt(value, assets.tile`transparency16`)
+}
+scene.cameraFollowSprite(mySprite)
+controller.moveSprite(mySprite, 100, 100)
