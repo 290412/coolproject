@@ -1,5 +1,11 @@
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (mySprite.vy == 0) {
+        mySprite.vy = -150
+    }
+})
+let mySprite: Sprite = null
 tiles.setCurrentTilemap(tilemap`level4`)
-let mySprite = sprites.create(img`
+mySprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
     . . . f f f 2 2 2 2 f f f . . . 
@@ -22,4 +28,5 @@ for (let value of tiles.getTilesByType(assets.tile`myTile3`)) {
     tiles.setTileAt(value, assets.tile`myTile`)
 }
 scene.cameraFollowSprite(mySprite)
-controller.moveSprite(mySprite, 100, 100)
+controller.moveSprite(mySprite, 100, 0)
+mySprite.ay = 300
