@@ -3,8 +3,25 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         mySprite.vy = -150
     }
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
+    info.changeLifeBy(-1)
+    levels()
+})
+function levels () {
+    if (current_level == 1) {
+        tiles.setCurrentTilemap(tilemap`level4`)
+    } else if (current_level == 2) {
+    	
+    }
+    tiles.placeOnRandomTile(mySprite, assets.tile`myTile3`)
+    for (let value of tiles.getTilesByType(assets.tile`myTile3`)) {
+        tiles.setTileAt(value, assets.tile`myTile`)
+    }
+}
 let mySprite: Sprite = null
-tiles.setCurrentTilemap(tilemap`level4`)
+let current_level = 0
+current_level = 1
+info.setLife(10)
 mySprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
@@ -23,10 +40,7 @@ mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
-tiles.placeOnRandomTile(mySprite, assets.tile`myTile3`)
-for (let value of tiles.getTilesByType(assets.tile`myTile3`)) {
-    tiles.setTileAt(value, assets.tile`myTile`)
-}
 scene.cameraFollowSprite(mySprite)
 controller.moveSprite(mySprite, 100, 0)
 mySprite.ay = 300
+levels()
