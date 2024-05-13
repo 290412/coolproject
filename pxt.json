@@ -1,9 +1,10 @@
 {
     "name": "cookers",
+    "version": "0.0.1",
     "description": "",
     "dependencies": {
         "device": "*",
-        "CoolProject": "github:290412/coolproject#b8066e0024eaa82a632ce44dce735beaa22b6e2c"
+        "CoolProject": "github:290412/coolproject"
     },
     "files": [
         "main.blocks",
